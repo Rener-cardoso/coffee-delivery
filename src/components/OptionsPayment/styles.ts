@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface OptionPaymentCountainerProps {
-  ischecked: "true" | "false";
+  ischecked: string;
 }
 
 export const OptionPaymentCountainer = styled.div<OptionPaymentCountainerProps>`
