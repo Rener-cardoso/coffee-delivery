@@ -43,8 +43,11 @@ const paymentFormValidationSchema = zod.object({
   numero: zod.string().nonempty("* Informe o número do local"),
   bairro: zod.string().nonempty("* Informe o seu bairro"),
   cidade: zod.string().nonempty("* Informe a sua cidade"),
-  uf: zod.string().nonempty("Informe UF")
+  uf: zod.string().nonempty("Informe UF"),
+  complemento: zod.string()
 })
+
+export type paymentFormProps = zod.infer<typeof paymentFormValidationSchema>
 
 export function Checkout() {
   const { cartItems, paymentOptions } = useCart();
@@ -72,11 +75,11 @@ export function Checkout() {
   const frete = 3.2
   const totalOrdered = (Number(totalProducts) + frete).toFixed(2)
 
-  const paymentForm = useForm<formProps>({
+  const paymentForm = useForm<paymentFormProps>({
     resolver: zodResolver(paymentFormValidationSchema),
   });
 
-  const onSubmit = (data: formProps) => {
+  const onSubmit = (data: paymentFormProps) => {
     /*Informações prontas para serem enviadas para o backend!!!*/
     navigate("/success", { state: data });
   }

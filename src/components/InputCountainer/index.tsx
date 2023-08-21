@@ -1,8 +1,9 @@
 import { useFormContext } from "react-hook-form";
 import { Cep, HouseInformation, Localization, InputCountainerBox, InputBox, OpcionalInputTrue, InputCountainerElement, ErrorMessage } from "./styles";
+import { paymentFormProps } from "../../pages/Checkout/index"
 
 export function InputCountainer() {
-  const { register, formState: {errors} } = useFormContext();
+  const { register, formState: {errors} } = useFormContext<paymentFormProps>();
 
   return (
     <InputCountainerBox>
