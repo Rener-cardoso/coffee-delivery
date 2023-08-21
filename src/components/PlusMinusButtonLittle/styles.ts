@@ -12,6 +12,10 @@ export const PlusMinusBox = styled.div`
     width: 4.5rem;
     height: 2rem;
 
+    @media(max-width: 768px) {
+      font-size: 85%;
+    }
+
     button {
       border: none;
       background: none;

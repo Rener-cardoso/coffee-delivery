@@ -3,19 +3,20 @@ import styled from "styled-components";
 export const InputCountainerBox = styled.div``;
 
 export const Cep = styled.div`
-  width: 12.5rem;
+  width: 36%;
 `;
 
 export const HouseInformation = styled.div`
   display: grid;
-  grid-template-columns: 12.5rem 1fr;
+  grid-template-columns: 36% 1fr;
   gap: 0.75rem;
 `;
 
 export const Localization = styled.div`
   display: grid;
-  grid-template-columns: 12.5rem 17.25rem 1fr;
+  grid-template-columns: 36% 36% 1fr;
   gap: 0.75rem;
+  
 `;
 
 export const InputCountainerElement = styled.div`
@@ -27,7 +28,7 @@ export const InputCountainerElement = styled.div`
   width: 100%;
 
   display: flex;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 `;
 
 export const InputBox = styled.input`
@@ -48,12 +49,26 @@ export const InputBox = styled.input`
     outline: 0;
     box-shadow: 0 0 0 0;
   }
+
+  @media(max-width: 768px) {
+    font-size: 80%;
+  }
 `;
 
 export const OpcionalInputTrue = styled.h2`
   font-size: 0.75rem;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 130%;
-    color: ${({ theme }) => theme["base-label"]};
+  font-style: italic;
+  font-weight: 400;
+  line-height: 130%;
+  color: ${({ theme }) => theme["base-label"]};
+
+  @media(max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const ErrorMessage = styled.span`
+  color: ${({ theme }) => theme["error-message"]};
+  font-size: 0.7rem;
+  margin-top: -10px;
 `;

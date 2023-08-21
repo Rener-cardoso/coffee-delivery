@@ -4,7 +4,7 @@ interface OptionPaymentCountainerProps {
   ischecked: boolean;
 }
 
-export const OptionPaymentCountainer = styled.button<OptionPaymentCountainerProps>`
+export const OptionPaymentCountainer = styled.div<OptionPaymentCountainerProps>`
   background-color: ${(props) => props.ischecked ? "#EBE5F9" : "#E6E5E5"};
   color: ${({ theme }) => theme["base-text"]};
   border: 1px solid ${(props) => props.ischecked ? "#8047F8" : "#F3F2F2"};
@@ -25,5 +25,13 @@ export const OptionPaymentCountainer = styled.button<OptionPaymentCountainerProp
 
   &:hover {
     background-color: ${({ theme }) => theme["base-hover"]};
+  }
+
+
+  @media(max-width: 768px) {
+    font-size: 50%;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 0;
   }
 `;

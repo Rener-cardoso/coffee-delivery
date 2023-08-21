@@ -11,8 +11,15 @@ export const HeaderCountainer = styled.header`
   display: flex;
   justify-content: space-between;
   max-width: 70rem;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   margin: 0 auto;
+  align-items: center;
+
+  @media(max-width: 768px) {
+    img {
+    width: 80%;
+    }
+  }
 `;
 
 export const NavCountainer = styled.nav`
@@ -28,6 +35,11 @@ export const MapPinCountainer = styled.div`
   border-radius: 6px;
   padding: 0.5rem;
   margin-right: 0.75rem;
+
+  @media(max-width: 768px) {
+   font-size: 80%;
+  }
+
 `;
 
 export const ShoppingCartCountainer = styled.div`

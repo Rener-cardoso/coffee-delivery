@@ -1,13 +1,33 @@
 import { MapPinLine, CurrencyDollar } from "@phosphor-icons/react";
-import { CheckoutCountainer, ConfirmButton, ConfirmCountainer, ConfirmTitle, FooterCountainer, MainCountainer, PaymentBox, PaymentBoxForm, PaymentCardCoffeeCountainer, PaymentCountainer, Sidebar, SidebarCountainer, TextBox, TextTitle, TotalConfirm } from "./styles";
 import { PaymentCardCoffee } from "../../components/PaymentCardCoffee";
 import { useCart } from "../../hooks/useCart";
 import { useEffect, useState } from "react";
 import { OptionsPayment } from "../../components/OptionsPayment";
 import { FormProvider, useForm } from "react-hook-form";
 import { InputCountainer } from "../../components/InputCountainer";
+import { useNavigate } from "react-router-dom";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as zod from "zod";
 
-interface formProps {
+import {
+  CheckoutCountainer, 
+  ConfirmButton, 
+  ConfirmCountainer, 
+  ConfirmTitle, 
+  FooterCountainer, 
+  MainCountainer, 
+  PaymentBox, 
+  PaymentBoxForm, 
+  PaymentCardCoffeeCountainer, 
+  PaymentCountainer, 
+  Sidebar, 
+  SidebarCountainer, 
+  TextBox, 
+  TextTitle, 
+  TotalConfirm 
+} from "./styles";
+
+export interface formProps {
   cep: string;
   rua: string;
   numero: string;
@@ -17,9 +37,20 @@ interface formProps {
   uf: string;
 }
 
+const paymentFormValidationSchema = zod.object({
+  cep: zod.string().nonempty("* Informe o seu CEP"),
+  rua: zod.string().nonempty("* Informe a sua rua"),
+  numero: zod.string().nonempty("* Informe o número do local"),
+  bairro: zod.string().nonempty("* Informe o seu bairro"),
+  cidade: zod.string().nonempty("* Informe a sua cidade"),
+  uf: zod.string().nonempty("Informe UF")
+})
+
 export function Checkout() {
   const { cartItems, paymentOptions } = useCart();
   const [ItemsTotal, setItemsTotal] = useState(0);
+
+  const navigate = useNavigate();
   
   useEffect(() => {
     function sumPriceProducts() {
@@ -41,14 +72,16 @@ export function Checkout() {
   const frete = 3.2
   const totalOrdered = (Number(totalProducts) + frete).toFixed(2)
 
-  const paymentForm = useForm<formProps>();
+  const paymentForm = useForm<formProps>({
+    resolver: zodResolver(paymentFormValidationSchema),
+  });
 
   const onSubmit = (data: formProps) => {
-    /*Informações prontas para serem enviadas para o backend!!!*/ 
-    console.log(data)
+    /*Informações prontas para serem enviadas para o backend!!!*/
+    navigate("/success", { state: data });
   }
 
-  const { handleSubmit } = paymentForm
+  const { handleSubmit } = paymentForm;
 
   return (
     <CheckoutCountainer onSubmit={handleSubmit(onSubmit)}>

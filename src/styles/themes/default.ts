@@ -19,4 +19,6 @@ export const defaultThemes = {
   'base-input': '#EDEDED',
   'base-card': '#F3F2F2',
   'background': '#FAFAFA',
+
+  'error-message': '#FF0000'
 };

@@ -13,7 +13,7 @@ export function Header() {
    <HeaderOutCountainer> 
     <HeaderCountainer>
       <NavLink to="/" >
-        <img src={logo} alt="" />
+          <img src={logo} alt="" />
       </NavLink>
       <NavCountainer>
         <MapPinCountainer>

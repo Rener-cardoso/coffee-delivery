@@ -9,6 +9,7 @@ export const PaymentCardCoffeeCountainer = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme["base-button"]};
 
 
+  
 
   img {
     width: 4rem;
@@ -41,8 +42,15 @@ export const PaymentCardCoffeeMain = styled.div`
 `
 
 export const TextCardCoffee = styled.div`
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+
+  @media(max-width: 768px) {
+    span, strong {
+      font-size: 80%;
+    }
+  }
+
 `;
 
 export const RemoveButton = styled.button`
@@ -64,6 +72,10 @@ export const RemoveButton = styled.button`
 
   &:hover {
     background-color: ${({ theme }) => theme["base-hover"]};
+  }
+
+  @media(max-width: 768px) {
+    font-size: 0.6rem;
   }
   `;
 

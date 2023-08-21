@@ -3,13 +3,28 @@ import styled from "styled-components";
 export const CheckoutCountainer = styled.form`
   max-width: 70rem;
   margin: 0 auto;
-  display: flex;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 57% 1fr;
+  /* gap: 2rem; */
+  /* border: 1px solid ${({ theme }) => theme["error-message"]}; */
+  
+  @media(max-width: 768px) {
+
+    grid-template-columns: 1fr;
+    padding-bottom: 1rem;
+  }
 `;
 
 export const PaymentCountainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  padding: 0 1rem;
+
+  @media(max-width: 768px) { 
+      
+      /* border: 1px solid ${({ theme }) => theme["error-message"]}; */
+    }
 `;
 
 export const TextTitle = styled.h2`
@@ -24,20 +39,27 @@ export const TextTitle = styled.h2`
 `;
 
 export const MainCountainer = styled.div`
-    width: 40rem;
-    height: 23.25rem;
+    min-height: 23.25rem;
     background-color: ${({ theme }) => theme["base-card"]};
     border-radius: 6px;
     padding: 2.5rem;
     margin-bottom: 0.75rem;
+
+    @media(max-width: 768px) {
+      padding: 1.5rem;
+      /* border: 1px solid ${({ theme }) => theme["error-message"]}; */
+    }
 `;
 
 export const TextBox = styled.div`
   margin-bottom: 2rem;
   display: flex;
   gap: 0.5rem;
-
   margin-bottom: 2rem;
+
+  @media(max-width: 768px) {
+    /* border: 1px solid ${({ theme }) => theme["error-message"]}; */
+  }
 
   h2 {
       font-size: 1rem;
@@ -49,6 +71,10 @@ export const TextBox = styled.div`
       gap: 0.5rem;
 
       color: ${({ theme }) => theme["base-subtitle"]};
+
+      @media(max-width: 768px) {
+        font-size: 80%;
+      }
     }
 
     span {
@@ -58,16 +84,24 @@ export const TextBox = styled.div`
 
       color: ${({ theme }) => theme["base-text"]};
 
+      @media(max-width: 768px) {
+        font-size: 75%;
+      }
     }
 `;
 
 export const SidebarCountainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  /* border: 1px solid ${({ theme }) => theme["error-message"]}; */
+  padding: 0 1rem;  
 
   h2 {
     margin-bottom: 0.93rem;
+  }
+
+  @media(max-width: 768px) {
+    margin-top: 2rem;
   }
 `;
 
@@ -80,6 +114,11 @@ export const Sidebar = styled.aside`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* border: 1px solid ${({ theme }) => theme["error-message"]}; */
+
+  @media(max-width: 768px) {
+    padding: 2rem 1rem 2rem;
+  }
 `;
 
 export const PaymentCardCoffeeCountainer = styled.div`
@@ -94,7 +133,7 @@ export const PaymentCardCoffeeCountainer = styled.div`
 export const InputCountainer = styled.div``;
 
 export const Cep = styled.div`
-  width: 12.5rem;
+  width: 36%;
 `;
 
 export const HouseInformation = styled.div`
@@ -107,14 +146,20 @@ export const Localization = styled.div`
   display: grid;
   grid-template-columns: 12.5rem 17.25rem 1fr;
   gap: 0.75rem;
+
 `;
 
 export const FooterCountainer = styled.footer`
   background-color: ${({ theme }) => theme["base-card"]};
   border-radius: 6px;
   width: 100%;
-  height: 12.9rem;
+  min-height: 12.9rem;
   padding: 2.5rem;
+
+  @media(max-width: 768px) {
+      padding: 1.5rem;
+      /* border: 1px solid ${({ theme }) => theme["error-message"]}; */
+    }
 `;
 
 export const PaymentBox = styled.div`
@@ -122,7 +167,9 @@ export const PaymentBox = styled.div`
   display: flex;
   gap: 0.5rem;
 
-  margin-bottom: 2rem;
+  @media(max-width: 768px) {
+    /* border: 1px solid ${({ theme }) => theme["error-message"]}; */
+  }
 
   h2 {
       font-size: 1rem;
@@ -134,6 +181,10 @@ export const PaymentBox = styled.div`
       gap: 0.5rem;
 
       color: ${({ theme }) => theme["base-subtitle"]};
+
+      @media(max-width: 768px) {
+      font-size: 80%;
+    }
     }
 
     span {
@@ -143,12 +194,22 @@ export const PaymentBox = styled.div`
 
       color: ${({ theme }) => theme["base-text"]};
 
+      @media(max-width: 768px) {
+        font-size: 75%;
+      }
     }
 `;
 
 export const PaymentBoxForm = styled.div`
   display: flex;
   gap: 0.75rem;
+
+  @media(max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    /* border: 1px solid ${({ theme }) => theme["error-message"]}; */
+  }
 `;
 
 const FormPaymentBase = styled.button`
@@ -200,6 +261,16 @@ export const ConfirmTitle = styled.div`
     strong {
       font-size: 1rem;
     }
+
+    @media(max-width: 768px) {
+      span {
+        font-size: 85%;
+      }
+
+      strong {
+        font-size: 85%;
+      }
+    }
   }
 `;
 
@@ -214,6 +285,10 @@ export const TotalConfirm = styled.div`
   line-height: 130%;
 
   color: ${({ theme }) => theme["base-subtitle"]};
+  
+  @media(max-width: 768px) {
+    font-size: ;
+  }
 `;
 
 export const ConfirmButton = styled.button`
