@@ -4,6 +4,10 @@ export const SuccessCountainer = styled.div`
   max-width: 70rem;
   margin: 0 auto;
   padding-top: 5rem;
+
+  @media(max-width: 768px) {
+    padding: 2rem 1rem 0;
+  }
 `;
 
 export const HeaderCountainer = styled.header`
@@ -25,12 +29,25 @@ export const HeaderCountainer = styled.header`
 
     color: ${({ theme }) => theme["base-subtitle"]};
   }
+
+  @media(max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 export const MainCountainer = styled.main`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+
+    img {
+      margin-top: 3rem;
+      width: 110%;
+    }
+  }
 `;
 
 export const AdressCountainer = styled.div`
@@ -52,6 +69,12 @@ export const AdressCountainer = styled.div`
     z-index: -1;
     border-radius: 7px 37px;
     background: linear-gradient(102.89deg, #dbac2c 2.61%, #8047f8 98.76%);
+  }
+
+  @media(max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
   }
 `;
 
@@ -95,5 +118,15 @@ export const AdressTextBox = styled.div`
     line-height: 130%;
 
     color: ${({ theme }) => theme["base-text"]};
+  }
+
+  @media(max-width: 768px) {
+    h2 {
+      font-size: 90%;
+    }
+
+    strong {
+      font-size: 90%;
+    }
   }
 `;

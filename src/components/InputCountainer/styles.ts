@@ -14,9 +14,12 @@ export const HouseInformation = styled.div`
 
 export const Localization = styled.div`
   display: grid;
-  grid-template-columns: 36% 36% 1fr;
+  grid-template-columns: 36% 40% 1fr;
   gap: 0.75rem;
   
+  @media(max-width: 768px) {
+    grid-template-columns: 36% 36% 1fr;
+  }
 `;
 
 export const InputCountainerElement = styled.div`
@@ -70,5 +73,8 @@ export const OpcionalInputTrue = styled.h2`
 export const ErrorMessage = styled.span`
   color: ${({ theme }) => theme["error-message"]};
   font-size: 0.7rem;
-  margin-top: -10px;
+  
+  @media(max-width: 768px) {
+    font-size: 0.5rem;
+  }
 `;

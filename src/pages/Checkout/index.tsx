@@ -43,7 +43,7 @@ const paymentFormValidationSchema = zod.object({
   numero: zod.string().nonempty("* Informe o número do local"),
   bairro: zod.string().nonempty("* Informe o seu bairro"),
   cidade: zod.string().nonempty("* Informe a sua cidade"),
-  uf: zod.string().nonempty("Informe UF"),
+  uf: zod.string().nonempty("* Informe UF"),
   complemento: zod.string()
 })
 

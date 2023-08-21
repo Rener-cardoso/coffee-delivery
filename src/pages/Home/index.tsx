@@ -28,7 +28,7 @@ export function Home() {
             </div>
           </FooterTextCountainer>
         </TextCountainer>
-        <div>
+        <div> 
           <img src={logoCafeteria} alt="" />
         </div>
       </HeaderCountainer>
