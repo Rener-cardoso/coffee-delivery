@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CheckoutCountainer = styled.form`
+export const CheckoutCountainer = styled.div`
   max-width: 70rem;
   margin: 0 auto;
   display: grid;
@@ -15,7 +15,7 @@ export const CheckoutCountainer = styled.form`
   }
 `;
 
-export const PaymentCountainer = styled.div`
+export const PaymentCountainer = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;

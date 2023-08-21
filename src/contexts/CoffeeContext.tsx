@@ -145,7 +145,7 @@ export function CoffeeContextProvider({ children }: CoffeeContextProviderProps) 
       const item = cartItems[coffeeExistsInCart];
       cartItems[coffeeExistsInCart].quantity =
        type === "increase" ? item.quantity + 1 : item.quantity - 1 
-      console.log(cartItems)
+      
       setCartItems([...cartItems])
     }
   }

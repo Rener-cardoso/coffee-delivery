@@ -4,14 +4,31 @@ import IlustrationSuccess from "../../assets/ilustrationIgniteCoffee.png"
 import { AdressCountainer, AdressTextBox, FirstIcon, HeaderCountainer, MainCountainer, SecondIcon, SuccessCountainer, ThirdIcon } from "./styles";
 import { useLocation } from "react-router-dom";
 import { formProps } from "../Checkout";
+import { useEffect, useState } from "react";
+import { useCart } from "../../hooks/useCart";
 
 interface LocationProps {
   state: formProps;
 }
 
 export function Success() {
+  const { paymentOptions } = useCart();
+  const [paymentForm, setPaymentForm] = useState([""]);
 
   const { state } = useLocation() as unknown as LocationProps;
+
+  useEffect(() => {
+    function addPaymentForm() {
+      const addPayment = paymentOptions.filter(paymentOption => paymentOption.ischecked === "true")
+      
+      const onlyTitle = addPayment.map(data => {
+        return data.title
+      })
+
+      setPaymentForm(onlyTitle)
+    }
+    addPaymentForm();
+  }, [paymentOptions])
 
   return (
     <SuccessCountainer>
@@ -45,7 +62,7 @@ export function Success() {
             </ThirdIcon>
             <div>
               <h2>Pagamento na entrega</h2>
-              <strong>Cartão de Crédito</strong>
+              <strong>{paymentForm}</strong>
             </div>
           </AdressTextBox>
         </AdressCountainer>

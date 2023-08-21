@@ -81,13 +81,14 @@ export function Checkout() {
 
   const onSubmit = (data: paymentFormProps) => {
     /*Informações prontas para serem enviadas para o backend!!!*/
+    console.log(data)
     navigate("/success", { state: data });
   }
 
   const { handleSubmit } = paymentForm;
 
   return (
-    <CheckoutCountainer onSubmit={handleSubmit(onSubmit)}>
+    <CheckoutCountainer>
       <PaymentCountainer>
         <TextTitle>Complete seu pedido</TextTitle>
         <MainCountainer>
@@ -162,7 +163,7 @@ export function Checkout() {
                 <span>Total</span>
                 <strong>R$ {totalOrdered}</strong>
               </TotalConfirm>
-            <ConfirmButton type="submit">
+            <ConfirmButton type="submit" onClick={handleSubmit(onSubmit)}>
               Confirmar Pedido
             </ConfirmButton>
           </ConfirmCountainer>
