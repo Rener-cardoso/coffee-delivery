@@ -34,7 +34,7 @@ interface paymentOptionsListProps {
   id: number;
   title: string;
   icon: JSX.Element;
-  ischecked: boolean;
+  ischecked: "true" | "false";
 }[]
 
 const paymentOptionsList = [
@@ -42,19 +42,19 @@ const paymentOptionsList = [
     id: 1,
     title:"Cartão de crédito",
     icon: <CreditCard color="#8047F8" size={16} />,
-    ischecked: false
+    ischecked: "false"
   },
   {
     id: 2,
     title:"Cartão de débito",
     icon: <Bank color="#8047F8" size={16} />, 
-    ischecked: false
+    ischecked: "false"
   }, 
   {
     id: 3,
     title:"Dinheiro",
     icon: <Money color="#8047F8" size={16} />, 
-    ischecked: false
+    ischecked: "false"
   }
 ]
 
@@ -157,16 +157,23 @@ export function CoffeeContextProvider({ children }: CoffeeContextProviderProps) 
   }
 
   function toggleCheckedPaymentForm(paymentOptionsId: number) {
-    const togglePymentForm = paymentOptions.map(paymentOption => {
+    const togglePaymentForm = paymentOptions.map(paymentOption => {
       if(paymentOption.id === paymentOptionsId) {
-        return {
-          ...paymentOption,
-          ischecked: !paymentOption.ischecked
+        if(paymentOption.ischecked === "false") {
+          return {
+            ...paymentOption,
+            ischecked: "true"
+          }
+        } else if (paymentOption.ischecked === "true") {
+          return {
+            ...paymentOption,
+            ischecked: "false"
+          }
         }
       }
       return paymentOption;
     })
-    setPaymentOptions(togglePymentForm)
+    setPaymentOptions(togglePaymentForm)
   }
 
   return (

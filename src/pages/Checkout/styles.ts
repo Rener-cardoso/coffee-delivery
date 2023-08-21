@@ -285,10 +285,6 @@ export const TotalConfirm = styled.div`
   line-height: 130%;
 
   color: ${({ theme }) => theme["base-subtitle"]};
-  
-  @media(max-width: 768px) {
-    font-size: ;
-  }
 `;
 
 export const ConfirmButton = styled.button`

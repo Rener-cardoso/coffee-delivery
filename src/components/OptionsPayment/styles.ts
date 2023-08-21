@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 interface OptionPaymentCountainerProps {
-  ischecked: boolean;
+  ischecked: "true" | "false";
 }
 
 export const OptionPaymentCountainer = styled.div<OptionPaymentCountainerProps>`
-  background-color: ${(props) => props.ischecked ? "#EBE5F9" : "#E6E5E5"};
+  background-color: ${(props) => props.ischecked === "true" ? "#EBE5F9" : "#E6E5E5"};
   color: ${({ theme }) => theme["base-text"]};
-  border: 1px solid ${(props) => props.ischecked ? "#8047F8" : "#F3F2F2"};
+  border: 1px solid ${(props) => props.ischecked === "true" ? "#8047F8" : "#F3F2F2"};
   border-radius: 6px;
   width: 100%;
   height: 3.125rem;

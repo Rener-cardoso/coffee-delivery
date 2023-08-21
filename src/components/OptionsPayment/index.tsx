@@ -7,7 +7,7 @@ interface OptionsPaymentProps {
   id: number;
   title:string;
   icon: ReactNode;
-  ischecked: true | false;
+  ischecked: "true" | "false";
 }
 
 export function OptionsPayment({title, icon, ischecked, id}: OptionsPaymentProps) {
