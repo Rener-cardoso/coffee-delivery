@@ -34,7 +34,7 @@ interface paymentOptionsListProps {
   id: number;
   title: string;
   icon: JSX.Element;
-  ischecked: "true" | "false";
+  ischecked: string;
 }[]
 
 const paymentOptionsList = [
